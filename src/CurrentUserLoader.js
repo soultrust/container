@@ -6,9 +6,7 @@ export const CurrentUserLoader = ({ children }) => {
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get(
-        "https://express-hello-world-wk8x.onrender.com/current-user"
-      );
+      const response = await axios.get("/current-user");
       setUser(response.data);
     })();
   }, []);

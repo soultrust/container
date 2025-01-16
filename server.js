@@ -1,26 +1,12 @@
 const express = require("express");
-var cors = require("cors");
+
 const app = express();
 
 app.use(express.json());
 
-// const corsOptions = {
-//   origin: "https://container-5gk9.onrender.com",
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
-
-app.use(
-  cors({
-    origin: "*", // Your React frontend URL
-    credentials: true, // If you're using cookies/sessions
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-
 let currentUser = {
   name: "John Doe",
-  age: 55,
+  age: 14,
   hairColor: "brown",
   hobbies: ["swimming", "bicycling", "video games"],
 };

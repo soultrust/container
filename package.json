@@ -2,7 +2,7 @@
   "name": "react-design-patterns",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://express-hello-world-wk8x.onrender.com/",
+  "proxy": "https://express-hello-world-wk8x.onrender.com",
   "dependencies": {
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "11.2.7",
