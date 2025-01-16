@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export const CurrentUserLoader = ({ children }) => {
-	const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
-	useEffect(() => {
-		(async () => {
-			const response = await axios.get('/current-user');
-			setUser(response.data);
-		})();
-	}, []);
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get(
+        "https://express-hello-world-wk8x.onrender.com/current-user"
+      );
+      setUser(response.data);
+    })();
+  }, []);
 
-	return (
-		<>
-		{React.Children.map(children, child => {
-			if (React.isValidElement(child)) {
-				return React.cloneElement(child, { user });
-			}
+  return (
+    <>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { user });
+        }
 
-			return child;
-		})}
-		</>
-	);
-}
+        return child;
+      })}
+    </>
+  );
+};
