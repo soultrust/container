@@ -1,8 +1,14 @@
 const express = require("express");
-
+var cors = require("cors");
 const app = express();
 
+app.use(cors);
 app.use(express.json());
+
+const corsOptions = {
+  origin: "https://container-5gk9.onrender.com",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 let currentUser = {
   name: "John Doe",
@@ -53,17 +59,17 @@ const products = [
   },
 ];
 
-app.get("/current-user", (req, res) => {
+app.get("/current-user", cors(corsOptions), (req, res) => {
   res.json(currentUser);
 });
 
-app.get("/users/:id", (req, res) => {
+app.get("/users/:id", cors(corsOptions), (req, res) => {
   const { id } = req.params;
 
   res.json(users.find((user) => user.id === id));
 });
 
-app.post("/users/:id", (req, res) => {
+app.post("/users/:id", cors(corsOptions), (req, res) => {
   const { id } = req.params;
   const { user: updatedUser } = req.body;
 
@@ -72,7 +78,7 @@ app.post("/users/:id", (req, res) => {
   res.json(users.find((user) => user.id === id));
 });
 
-app.get("/users", (req, res) => {
+app.get("/users", cors(corsOptions), (req, res) => {
   res.json(users);
 });
 
