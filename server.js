@@ -1,5 +1,5 @@
 const express = require("express");
-// var cors = require("cors");
+var cors = require("cors");
 const app = express();
 
 app.use(express.json());
@@ -9,27 +9,7 @@ app.use(express.json());
 //   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 // };
 
-app.use(function (req, res, next) {
-  // res.header("Access-Control-Allow-Origin", "*");
-  const allowedOrigins = [
-    "http://localhost:3000",
-    "https://express-hello-world-wk8x.onrender.com",
-    "https://container-5gk9.onrender.com",
-  ];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.header("Access-Control-Allow-credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, UPDATE");
-  next();
-});
-
-// app.use(cors());
+app.use(cors());
 
 let currentUser = {
   name: "John Doe",
