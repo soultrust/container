@@ -1,8 +1,7 @@
 const express = require("express");
-var cors = require("cors");
+// var cors = require("cors");
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 
 // const corsOptions = {
@@ -25,10 +24,12 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.header("Access-Control-Allow-credentials", false);
+  res.header("Access-Control-Allow-credentials", true);
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, UPDATE");
   next();
 });
+
+// app.use(cors());
 
 let currentUser = {
   name: "John Doe",
