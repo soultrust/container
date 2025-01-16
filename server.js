@@ -9,7 +9,14 @@ app.use(express.json());
 //   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 // };
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Your React frontend URL
+    credentials: true, // If you're using cookies/sessions
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 let currentUser = {
   name: "John Doe",
