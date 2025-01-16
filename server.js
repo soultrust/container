@@ -15,6 +15,7 @@ app.use(function (req, res, next) {
   const allowedOrigins = [
     "http://localhost:3000",
     "https://express-hello-world-wk8x.onrender.com",
+    "https://container-5gk9.onrender.com",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
